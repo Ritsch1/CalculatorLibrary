@@ -36,7 +36,11 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command: pytest
+          command: pytest -v --cov
+      - run:
+          name: Apply Linter
+          # This assumes the flake8 linter is installed to check for PEP8 compliance
+          command: flake8 --statistics 
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
