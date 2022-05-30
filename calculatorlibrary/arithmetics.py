@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 def add(*args: [float]) -> float:
     """Add arbitrary numeric arguments together and return the sum.
 
@@ -13,4 +16,4 @@ def add(*args: [float]) -> float:
     assert all(
         isinstance(number, (int, float)) for number in args
     ), "Only numeric values can be provided to the add function."
-    return sum(args)
+    return reduce(lambda x, y: x + y, args)
