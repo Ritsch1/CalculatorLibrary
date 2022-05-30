@@ -4,7 +4,7 @@ import pytest
 
 
 class TestCalculator:
-    # Follow DRY pattern by providing and reusing test data for multiple functions
+    # DRY pattern by providing and reusing test data for multiple functions
     @pytest.fixture
     def sample_numeric_data(self):
         return {
