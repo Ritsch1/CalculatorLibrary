@@ -15,13 +15,16 @@ class TestCalculator:
             ]
         }
 
+    @pytest.mark.config
     def test_version(self):
         assert __version__ == "0.1.0"
 
+    @pytest.mark.module_functions
     def test_add_function(self, sample_numeric_data):
         for args, result, _ in sample_numeric_data["Addition_Subtraction"]:
             assert add(*args) == result
 
+    @pytest.mark.module_functions
     def test_subtract_function(self, sample_numeric_data):
         for args, _, result in sample_numeric_data["Addition_Subtraction"]:
             assert subtract(*args) == result
