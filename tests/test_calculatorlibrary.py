@@ -1,5 +1,5 @@
 from calculatorlibrary import __version__
-from calculatorlibrary.arithmetics import add
+from calculatorlibrary.arithmetics import add, subtract
 import pytest
 
 
@@ -11,7 +11,7 @@ class TestCalculator:
             "Addition_Subtraction": [
                 ((1, 1, 2), 4, -2),
                 ((2, 78, 43), 123, -119),
-                ((-2, 10, 22), 30, -14),
+                ((-2, 10, 22), 30, -34),
             ]
         }
 
@@ -21,3 +21,7 @@ class TestCalculator:
     def test_add_function(self, sample_numeric_data):
         for args, result, _ in sample_numeric_data["Addition_Subtraction"]:
             assert add(*args) == result
+
+    def test_subtract_function(self, sample_numeric_data):
+        for args, _, result in sample_numeric_data["Addition_Subtraction"]:
+            assert subtract(*args) == result
