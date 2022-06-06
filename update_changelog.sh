@@ -32,7 +32,7 @@ case $last_commit_description in
 esac
 
 #Get the latest version from the changelog
-last_version=$(cat ../CHANGELOG.md | grep -i -E -o "[0-9]+\.[0-9]+\.[0-9]+")	
+last_version=$(cat CHANGELOG.md | grep -i -E -o "[0-9]+\.[0-9]+\.[0-9]+")	
 
 # Read every part of the version into variables
 IFS=. read -r major_old minor_old patch_old <<< "$last_version"
@@ -61,4 +61,4 @@ case $last_commit_msg in
 esac
 
 # Update Changelog, insert the newest entry at the top of the file
-echo -e "## [$new_version_num] - $(date +"%Y-%m-%d")\n### $change_type\n- $last_commit_description\n\n$(cat ../CHANGELOG.md)" > ../CHANGELOG.md
+echo -e "## [$new_version_num] - $(date +"%Y-%m-%d")\n### $change_type\n- $last_commit_description\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
