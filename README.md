@@ -1,7 +1,7 @@
 # CalculatorLibrary
 
-This repository is only intended for playing around with the circleCI tool for implementing a CI on a GitHub repository
-as well as exploring pre-commit hooks.
+This repository is only intended for playing around with the circleCI / Github Actions tool for implementing a CI on a GitHub repository
+as well as exploring other mechanisms such as git hooks.
 
 Commands for using pre-commit hooks in a python project (When using poetry as a dependency management tool):
 
