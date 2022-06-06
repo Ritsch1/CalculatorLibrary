@@ -56,8 +56,8 @@ case $last_commit_msg in
     new_version_num=$(echo "$major_old.$minor_new.0");;    
 
     *)
-    echo "No semantic Versioning commit type found. Not updating the ChangeLog.";;
-    exit 0
+    echo "No semantic Versioning commit type found. Not updating the ChangeLog."
+    exit 0;;
 
 esac
 
