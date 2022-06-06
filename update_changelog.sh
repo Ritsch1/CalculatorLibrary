@@ -46,14 +46,14 @@ case $last_commit_msg in
     *"!"*)
     # increment
     major_new=$((major_old + 1))     
-    new_version_num=$(echo "$major_new.0.0");;
-    is_new_version=1
+    new_version_num=$(echo "$major_new.0.0")
+    is_new_version=1;;
 
     *"fix"*)
     # increment
     patch_new=$((patch_old + 1))
-    new_version_num=$(echo "$major_old.$minor_old.$patch_new");;
-    is_new_version=1
+    new_version_num=$(echo "$major_old.$minor_old.$patch_new")
+    is_new_version=1;;
 
     *"feat"*)
     # increment
