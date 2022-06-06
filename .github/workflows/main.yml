@@ -16,6 +16,7 @@ jobs:
 
       - name: Commit the changes in the Changelog to master
         run: |
+          git config --local user.name "plesz"    
           git add ./CHANGELOG.md
           git commit -m "Automatic update of changelog."
       
