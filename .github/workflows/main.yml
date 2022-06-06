@@ -13,3 +13,14 @@ jobs:
 
       - name: Update Changelog
         run:  bash ./update_changelog.sh
+
+      - name: Commit the changes in the Changelog to master
+        run: |
+          git add ./CHANGELOG.md
+          git commit -m "Automatic update of changelog."
+      
+      - name: Push the commit to master branch
+        uses: actions/github-push-action@master
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          force: true
