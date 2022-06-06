@@ -29,6 +29,9 @@ case $last_commit_description in
     *"Security"*)
     change_type="Security";;
 
+    *"Docs"*)
+    change_type="Docs";;
+
 esac
 
 #Get the latest version from the changelog
@@ -44,22 +47,30 @@ case $last_commit_msg in
     # increment
     major_new=$((major_old + 1))     
     new_version_num=$(echo "$major_new.0.0");;
+    is_new_version=1
 
     *"fix"*)
     # increment
     patch_new=$((patch_old + 1))
     new_version_num=$(echo "$major_old.$minor_old.$patch_new");;
-    
+    is_new_version=1
+
     *"feat"*)
     # increment
     minor_new=$((minor_old + 1))
-    new_version_num=$(echo "$major_old.$minor_new.0");;    
+    new_version_num=$(echo "$major_old.$minor_new.0")
+    is_new_version=1;;    
 
     *)
     echo "No semantic Versioning commit type found. Not updating the ChangeLog."
-    exit 0;;
+    is_new_version=0;;
 
 esac
 
 # Update Changelog, insert the newest entry at the top of the file
-echo -e "## [$new_version_num] - $(date +"%Y-%m-%d")\n### $change_type\n- $last_commit_description\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+if [[$is_new_version == 1]]
+then
+    echo -e "## [$new_version_num] - $(date +"%Y-%m-%d")\n### $change_type\n- $last_commit_description\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+else
+    echo -e "## [$last_version] - $(date +"%Y-%m-%d")\n### $change_type\n- $last_commit_description\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
+fi
