@@ -20,7 +20,7 @@ jobs:
           git commit -m "Automatic update of changelog."
       
       - name: Push the commit to master branch
-        uses: actions/github-push-action@master
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           force: true
