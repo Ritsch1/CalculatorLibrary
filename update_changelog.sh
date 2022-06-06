@@ -57,6 +57,7 @@ case $last_commit_msg in
 
     *)
     echo "No semantic Versioning commit type found. Not updating the ChangeLog.";;
+    exit 0
 
 esac
 
