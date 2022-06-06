@@ -1,3 +1,7 @@
+## [0.2.1] - 2022-06-06
+### Fixed
+-  Fix script.
+
 ## [] - 2022-06-06
 ### Removed
 -  Remove README.rst
